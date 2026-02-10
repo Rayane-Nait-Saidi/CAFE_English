@@ -6,7 +6,6 @@ import Services from "./Services";
 import Walk from "./Walk";
 import OpeningHours from "./OpeningHours";
 import Footer from "./Footer";
-import "./Index.css";
 
 const Index = () => {
   return (
