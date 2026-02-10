@@ -1,0 +1,215 @@
+/* Walk.css */
+.walk {
+  padding: 4rem 1rem;
+  background: #fafafa;
+}
+
+.walk__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.walk__header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.walk__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2D7D9A;
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.walk__divider {
+  width: 80px;
+  height: 3px;
+  background: #E07A5F;
+  margin: 0 auto 1.5rem;
+}
+
+.walk__subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.walk__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .walk__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+}
+
+.walk__image-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 4/3;
+}
+
+.walk__image-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.walk__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.walk__image-container:hover .walk__image {
+  transform: scale(1.05);
+}
+
+.walk__image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: 1.5rem 1rem 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.walk__image-container:hover .walk__image-overlay {
+  transform: translateY(0);
+}
+
+.walk__image-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FFD166;
+}
+
+.walk__view-text {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.walk__counter {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-top: 2rem;
+}
+
+.walk__counter-current {
+  color: #2D7D9A;
+  font-weight: 600;
+}
+
+.walk__counter-divider {
+  margin: 0 0.5rem;
+  opacity: 0.5;
+}
+
+.walk__counter-total {
+  opacity: 0.7;
+}
+
+/* Modal/Lightbox Styles */
+.walk__modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.walk__modal-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.2s ease;
+  z-index: 1001;
+}
+
+.walk__modal-close:hover {
+  opacity: 0.7;
+}
+
+.walk__modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.walk__modal-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.walk__modal-nav--prev {
+  left: 2rem;
+}
+
+.walk__modal-nav--next {
+  right: 2rem;
+}
+
+.walk__modal-content {
+  max-width: 90%;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.walk__modal-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
